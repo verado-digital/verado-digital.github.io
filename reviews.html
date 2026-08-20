@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews | Verado Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="reviews.html" class="active">Reviews</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="btn btn-navy">Let's Talk</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Client Reviews</span>
+      <h1>The Proof Is In <em>the Results.</em></h1>
+      <p>Placeholder reviews below — swap these for real client feedback once you have it collected.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="stat-strip reveal">
+        <div class="stat"><div class="num">4.9/5</div><div class="label">Average rating</div></div>
+        <div class="stat"><div class="num">40+</div><div class="label">Reviews collected</div></div>
+        <div class="stat"><div class="num">96%</div><div class="label">Would recommend</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">Verified clients</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">All Reviews</button>
+        <button class="filter-tab" data-filter="shopify">Shopify</button>
+        <button class="filter-tab" data-filter="marketing">Marketing</button>
+        <button class="filter-tab" data-filter="branding">Branding</button>
+      </div>
+      <div class="test-grid" id="reviewsGrid" style="grid-template-columns:repeat(3,1fr);"></div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+        <span class="eyebrow">Add your voice</span>
+        <h2>Worked with <em>Verado Digital?</em></h2>
+        <p>I'd love to hear how it went — your feedback helps other founders trust the process.</p>
+      </div>
+      <div style="text-align:center;">
+        <a href="contact.html" class="btn btn-navy">Leave a review →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center;">Ready to grow?</span>
+      <h2>Become the next success story.</h2>
+      <p>Tell me about your business. I'll tell you exactly where to start.</p>
+      <a href="contact.html" class="btn btn-gold">Book a free consultation →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+        <p class="footer-tag">The growth partner your ecommerce business deserves.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="blog.html">Blog</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="mailto:hello@veradodigital.com">hello@veradodigital.com</a>
+          <a href="contact.html">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verado Digital. All rights reserved.</span>
+      <span>Built for brands ready to grow.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reviews = [
+    {n:"Amara Osei", r:"Shopify Store Owner", cat:"shopify", q:"Placeholder review — swap for a real client quote about the finished store."},
+    {n:"David Mensah", r:"Marketing Director", cat:"marketing", q:"Placeholder review — highlight a specific, measurable result your client saw."},
+    {n:"Fatima Al-Rashid", r:"Ecommerce Founder", cat:"shopify", q:"Placeholder review — mention what made the experience stand out for them."},
+    {n:"Priya Nair", r:"Shopify Site Owner", cat:"shopify", q:"Placeholder review — note the turnaround time or communication style."},
+    {n:"Michael Osei", r:"Repeat Client", cat:"branding", q:"Placeholder review — mention returning for a second project."},
+    {n:"Grace Adeyemi", r:"TikTok Shop Seller", cat:"marketing", q:"Placeholder review — highlight results from a marketing campaign."},
+    {n:"Tunde Bakare", r:"Founder, Skincare Brand", cat:"branding", q:"Placeholder review — mention the brand identity or packaging outcome."},
+    {n:"Lerato Dube", r:"Marketplace Seller", cat:"marketing", q:"Placeholder review — highlight results from a marketplace setup."},
+    {n:"Samuel Otieno", r:"Shopify Store Owner", cat:"shopify", q:"Placeholder review — mention a specific conversion rate improvement."}
+  ];
+  function renderReviews(filter){
+    const items = filter === 'all' ? reviews : reviews.filter(r=>r.cat===filter);
+    document.getElementById('reviewsGrid').innerHTML = items.map(t=>`
+      <div class="test-card reveal in">
+        <div class="stars">★★★★★</div>
+        <p>"${t.q}"</p>
+        <div class="test-who">
+          <div class="avatar">${t.n[0]}</div>
+          <div><div class="name">${t.n}</div><div class="role">${t.r}</div></div>
+        </div>
+      </div>`).join('');
+  }
+  renderReviews('all');
+  document.querySelectorAll('.filter-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderReviews(tab.dataset.filter);
+    });
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

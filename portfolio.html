@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Verado Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="btn btn-navy">Let's Talk</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">The Proof</span>
+      <h1>A Portfolio Built <em>on Results.</em></h1>
+      <p>Real projects, real numbers. From Shopify builds to full growth campaigns — here's what gets delivered. Placeholder projects below — swap these for real case studies once you have them.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="shopify">Shopify</button>
+        <button class="filter-tab" data-filter="marketing">Marketing</button>
+      </div>
+      <div class="work-grid" id="workGrid"></div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Client Reviews</span>
+        <h2>Trusted by <em>Ambitious Brands.</em></h2>
+        <p>Placeholder reviews — swap these for real client feedback once you have it.</p>
+      </div>
+      <div class="test-grid" id="testGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center;">Ready to grow?</span>
+      <h2>Your Next Chapter Starts Here.</h2>
+      <p>Tell me about your business. I'll tell you exactly where to start.</p>
+      <a href="contact.html" class="btn btn-gold">Book a free consultation →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+        <p class="footer-tag">The growth partner your ecommerce business deserves.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="blog.html">Blog</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="mailto:hello@veradodigital.com">hello@veradodigital.com</a>
+          <a href="contact.html">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verado Digital. All rights reserved.</span>
+      <span>Built for brands ready to grow.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const work = [
+    {c:"w1", cat:"shopify", tag:"Shopify Design", name:"Project name — Full store build & optimisation"},
+    {c:"w2", cat:"shopify", tag:"Shopify · Beauty", name:"Project name — Full store launch"},
+    {c:"w3", cat:"marketing", tag:"SEO & Listings", name:"Project name — Store SEO & product listings"},
+    {c:"w4", cat:"shopify", tag:"Shopify Redesign", name:"Project name — Full redesign & UX overhaul"},
+    {c:"w5", cat:"marketing", tag:"Email Marketing", name:"Project name — 48% open rate welcome flow"},
+    {c:"w6", cat:"shopify", tag:"Shopify · Home Goods", name:"Project name — Storefront & app integrations"},
+    {c:"w1", cat:"shopify", tag:"Fashion Store Design", name:"Project name — Store design & brand launch"},
+    {c:"w3", cat:"marketing", tag:"Paid Social", name:"Project name — Ad campaigns & content strategy"},
+    {c:"w2", cat:"marketing", tag:"Email + SEO", name:"Project name — Combined growth campaign"}
+  ];
+  document.getElementById('workGrid').innerHTML = work.map(w=>`
+    <div class="work-item reveal" data-cat="${w.cat}">
+      <div class="work-thumb ${w.c}">
+        <div class="work-label"><span class="mono">${w.tag}</span><div class="name">${w.name}</div></div>
+      </div>
+    </div>`).join('');
+
+  const reviews = [
+    {n:"Amara Osei", r:"Shopify Store Owner", q:"Placeholder review — swap for a real client quote about the finished store."},
+    {n:"David Mensah", r:"Marketing Director", q:"Placeholder review — highlight a specific, measurable result your client saw."},
+    {n:"Fatima Al-Rashid", r:"Ecommerce Founder", q:"Placeholder review — mention what made the experience stand out for them."},
+    {n:"Priya Nair", r:"Shopify Site Owner", q:"Placeholder review — note the turnaround time or communication style."},
+    {n:"Michael Osei", r:"Repeat Client", q:"Placeholder review — mention returning for a second project."},
+    {n:"Grace Adeyemi", r:"TikTok Shop Seller", q:"Placeholder review — highlight results from a marketing campaign."}
+  ];
+  document.getElementById('testGrid').innerHTML = reviews.map(t=>`
+    <div class="test-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"${t.q}"</p>
+      <div class="test-who">
+        <div class="avatar">${t.n[0]}</div>
+        <div><div class="name">${t.n}</div><div class="role">${t.r}</div></div>
+      </div>
+    </div>`).join('');
+</script>
+<script src="script.js"></script>
+</body>
+</html>

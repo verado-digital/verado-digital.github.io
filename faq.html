@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Verado Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .faq-cat h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:48px 0 6px;}
+  .faq-cat:first-of-type h5{margin-top:0;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="contact.html" class="btn btn-navy">Let's Talk</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Frequently Asked Questions</span>
+      <h1>Everything You <em>Need to Know.</em></h1>
+      <p>Answers to the questions I get asked most. Can't find yours? Reach out directly and I'll get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width:820px;">
+
+      <div class="faq-cat">
+        <h5>Getting Started</h5>
+        <div id="faqGetStarted"></div>
+      </div>
+
+      <div class="faq-cat">
+        <h5>Pricing &amp; Process</h5>
+        <div id="faqPricing"></div>
+      </div>
+
+      <div class="faq-cat">
+        <h5>Services &amp; Platforms</h5>
+        <div id="faqServices"></div>
+      </div>
+
+      <div class="faq-cat">
+        <h5>Support &amp; Ongoing Work</h5>
+        <div id="faqSupport"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="cta-band reveal" style="background:none;padding:0;color:var(--ink);text-align:left;display:grid;grid-template-columns:1.3fr 0.7fr;gap:24px;align-items:center;">
+        <div>
+          <span class="eyebrow" style="justify-content:flex-start;">Still have questions?</span>
+          <h2 style="color:var(--navy);">Let's talk it through — no obligation.</h2>
+        </div>
+        <div style="text-align:right;">
+          <a href="contact.html" class="btn btn-navy">Contact me →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+        <p class="footer-tag">The growth partner your ecommerce business deserves.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="mailto:hello@veradodigital.com">hello@veradodigital.com</a>
+          <a href="contact.html">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verado Digital. All rights reserved.</span>
+      <span>Built for brands ready to grow.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function buildFaq(id, faqs){
+    document.getElementById(id).innerHTML = faqs.map((f,i)=>`
+      <div class="faq-item${i===0?' open':''}">
+        <button class="faq-q"><span>${f.q}</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>${f.a}</p></div>
+      </div>`).join('');
+  }
+
+  buildFaq('faqGetStarted', [
+    {q:"How do I get started?", a:"Book a free consultation through the contact page. We'll talk through your goals and I'll recommend the right starting point."},
+    {q:"How long does a project take?", a:"Most builds launch in 7–14 days. Shopify stores typically take 5–10 days depending on scope and complexity."},
+    {q:"Do you work with brand-new businesses?", a:"Yes — from first-time founders launching their very first store to established brands scaling their next stage."}
+  ]);
+
+  buildFaq('faqPricing', [
+    {q:"How much does a project cost?", a:"Pricing depends on scope. Get in touch for a free, no-obligation quote tailored to your project."},
+    {q:"Do you require a deposit?", a:"Yes, a deposit secures your project slot, with the balance due on completion or in milestone payments for larger builds."},
+    {q:"Can I pay in installments?", a:"For larger projects, milestone-based payments are available — this is discussed and agreed before work begins."}
+  ]);
+
+  buildFaq('faqServices', [
+    {q:"What platforms do you specialise in?", a:"Shopify, plus SEO, paid ads, email marketing, brand identity, marketplace setup, and full ecommerce website development."},
+    {q:"Can you set me up on Amazon, Etsy, or other marketplaces?", a:"Yes — marketplace setup is one of my core services, covering account setup, listings, and storefront optimisation."},
+    {q:"Can you redesign my existing website?", a:"Absolutely. Full redesigns, speed optimisation, SEO improvements, and feature additions to existing sites are all available."}
+  ]);
+
+  buildFaq('faqSupport', [
+    {q:"Do you offer post-launch support?", a:"Yes — every project includes 30 days of free post-launch support, with monthly packages available after that."},
+    {q:"What if I need changes after launch?", a:"Minor tweaks are covered during the support window. Larger changes are scoped and quoted separately."},
+    {q:"How do we communicate during the project?", a:"Directly by email or WhatsApp, with regular updates at each milestone — no account managers, no delays."}
+  ]);
+</script>
+<script src="script.js"></script>
+</body>
+</html>

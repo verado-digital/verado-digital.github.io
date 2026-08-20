@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Verado Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="btn btn-navy">Let's Talk</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">The Full Arsenal</span>
+      <h1>Full-Stack Ecommerce <em>Mastery.</em></h1>
+      <p>A full-stack ecommerce offering. Whether you need a store built from scratch, existing channels optimised, or a full growth strategy — I cover it end to end.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="list-head reveal">
+        <div>
+          <span class="list-eyebrow">01 — The Full Arsenal</span>
+          <h2 class="list-heading">All Services</h2>
+        </div>
+      </div>
+      <div class="service-list" id="allServices"></div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Not Sure Where to Start?</span>
+        <h2>Tell Me Your Goal — <em>I'll Chart the Fastest Path There.</em></h2>
+      </div>
+      <a href="contact.html" class="btn btn-navy">Get in touch →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">Verado Digital<span class="dot">.</span></a>
+        <p class="footer-tag">The growth partner your ecommerce business deserves.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="blog.html">Blog</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="mailto:hello@veradodigital.com">hello@veradodigital.com</a>
+          <a href="contact.html">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verado Digital. All rights reserved.</span>
+      <span>Built for brands ready to grow.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const services = [
+    {t:"AI-Powered Websites", d:"Smart sites with built-in chat, automated lead capture, and content tools that work around the clock.", href:"service-ai-websites.html"},
+    {t:"Shopify Development", d:"Custom storefronts, theme design, and app integrations built for conversion from day one.", href:"service-shopify.html"},
+    {t:"Ecommerce Website Development", d:"Fully custom storefronts across Shopify, WooCommerce, and headless platforms — built around your business.", href:"service-ecommerce-dev.html"},
+    {t:"Marketplace Setup", d:"Seller accounts, storefronts, and optimised listings on Amazon, Etsy, Jumia, and beyond.", href:"service-marketplace.html"},
+    {t:"SEO & Content", d:"Technical SEO, keyword strategy, and content that drives organic traffic month after month.", href:"service-seo.html"},
+    {t:"Social Media Marketing", d:"Strategy, content, and paid campaigns across Instagram, TikTok, and Meta that build real audiences.", href:"service-social.html"},
+    {t:"Paid Ads & Google", d:"ROI-focused Google and Meta campaigns that put you in front of the right people at the right time.", href:"service-ads.html"},
+    {t:"Email Marketing", d:"Automated flows and campaigns that nurture leads and turn buyers into repeat customers.", href:"service-email.html"},
+    {t:"Brand Identity", d:"Logo, guidelines, and a visual system that makes your business instantly recognisable.", href:"service-branding.html"},
+    {t:"Landing Pages", d:"High-converting pages with tested copy and CTAs, built specifically to turn visitors into leads.", href:"service-landing.html"}
+  ];
+  document.getElementById('allServices').innerHTML = services.map((s,i)=>`
+    <a href="${s.href}" class="service-row reveal">
+      <span class="row-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="row-title">${s.t}</span>
+      <span class="row-desc">${s.d}</span>
+      <span class="row-arrow">↗</span>
+    </a>`).join('');
+</script>
+<script src="script.js"></script>
+</body>
+</html>
