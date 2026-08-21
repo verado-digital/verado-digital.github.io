@@ -60,11 +60,19 @@ function initPopup(){
         <div id="popupFormState">
           <span class="popup-badge">Wait — Free Offer</span>
           <h3 id="popupHeadline">Get a <em>Free Store Audit</em><br>Before You Go</h3>
-          <p>Enter your email and we'll send a personalised audit of your store — what's working, what's not, and how to fix it. No fluff, real insights.</p>
+          <p>Share your website and email, and we'll send a personalised audit — what's working, what's not, and how to fix it. No fluff, real insights.</p>
           <form id="popupForm">
-            <input type="email" id="popupEmail" placeholder="your@email.com" required autocomplete="email">
+            <div class="popup-field">
+              <span class="popup-field-icon">🌐</span>
+              <input type="text" id="popupWebsite" placeholder="Your website URL (or 'none yet')" required autocomplete="url">
+            </div>
+            <div class="popup-field">
+              <span class="popup-field-icon">✉️</span>
+              <input type="email" id="popupEmail" placeholder="your@email.com" required autocomplete="email">
+            </div>
             <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center;">Send Me the Free Audit →</button>
           </form>
+          <div class="popup-divider"></div>
           <button type="button" class="popup-decline" id="popupDecline">No thanks, I don't want free advice</button>
           <span class="popup-fine">No spam. Unsubscribe anytime. See our <a href="privacy.html">Privacy Policy</a>.</span>
         </div>
