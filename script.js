@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // email capture popup
   initPopup();
+
+  // cookie consent
+  initCookieBanner();
 });
 
 function initPopup(){
@@ -54,22 +57,102 @@ function initPopup(){
     <div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupHeadline">
       <div class="popup-modal">
         <button class="popup-close" id="popupClose" aria-label="Close">×</button>
-        <div class="popup-visual">
-          <span class="eyebrow">Limited Availability</span>
-          <div class="growth-bars" aria-hidden="true">
-            <div class="bar" style="height:35%"></div>
-            <div class="bar" style="height:55%"></div>
-            <div class="bar" style="height:40%"></div>
-            <div class="bar" style="height:75%"></div>
-            <div class="bar" style="height:100%"></div>
-          </div>
-          <div class="popup-stat">96%<span>Average Client Satisfaction</span></div>
+        <div id="popupFormState">
+          <span class="popup-badge">Wait — Free Offer</span>
+          <h3 id="popupHeadline">Get a <em>Free Store Audit</em><br>Before You Go</h3>
+          <p>Enter your email and we'll send a personalised audit of your store — what's working, what's not, and how to fix it. No fluff, real insights.</p>
+          <form id="popupForm">
+            <input type="email" id="popupEmail" placeholder="your@email.com" required autocomplete="email">
+            <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center;">Send Me the Free Audit →</button>
+          </form>
+          <button type="button" class="popup-decline" id="popupDecline">No thanks, I don't want free advice</button>
+          <span class="popup-fine">No spam. Unsubscribe anytime. See our <a href="privacy.html">Privacy Policy</a>.</span>
         </div>
-        <div class="popup-form-side">
-          <div id="popupFormState">
-            <span class="eyebrow">Free Store Audit</span>
-            <h3 id="popupHeadline">Discover What's<br><em>Costing You Sales.</em></h3>
-            <p>Get a personalised breakdown of your store's speed, SEO, and conversion gaps — free, no obligation.</p>
-            <form id="popupForm">
-              <input type="email" id="popupEmail" placeholder="you@company.com" required autocomplete="email">
-              <button type="submit" class="btn
+        <div class="popup-success" id="popupSuccess">
+          <div class="ic">✓</div>
+          <h3>You're In.</h3>
+          <p>Check your inbox shortly — your free audit request has been received.</p>
+        </div>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML('beforeend', markup);
+
+  const overlay = document.getElementById('popupOverlay');
+  const closeBtn = document.getElementById('popupClose');
+  const form = document.getElementById('popupForm');
+  const formState = document.getElementById('popupFormState');
+  const successState = document.getElementById('popupSuccess');
+  let shown = false;
+
+  function openPopup(){
+    if (shown) return;
+    shown = true;
+    overlay.classList.add('show');
+  }
+  function closePopup(){
+    overlay.classList.remove('show');
+    sessionStorage.setItem(DISMISS_KEY, '1');
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+  document.getElementById('popupDecline').addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closePopup(); });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formState.style.display = 'none';
+    successState.classList.add('show');
+    sessionStorage.setItem(DISMISS_KEY, '1');
+    setTimeout(closePopup, 2600);
+  });
+
+  // trigger: 6s delay, or exit-intent (mouse leaves top of viewport), whichever first
+  const timer = setTimeout(openPopup, 6000);
+  document.addEventListener('mouseout', function exitIntent(e){
+    if (!e.relatedTarget && e.clientY <= 0) {
+      clearTimeout(timer);
+      openPopup();
+      document.removeEventListener('mouseout', exitIntent);
+    }
+  });
+}
+
+// Tawk.to live chat
+var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+(function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/6a881e43b56df5344af1c0fe/1k0hrce1g';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+})();
+
+// cookie consent banner
+function initCookieBanner(){
+  const CONSENT_KEY = 'veradoCookieConsent';
+  if (localStorage.getItem(CONSENT_KEY)) return;
+
+  const markup = `
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+      <h4>We Value Your Privacy</h4>
+      <p>We use cookies to keep the site running smoothly and understand how visitors use it. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+      <div class="cookie-actions">
+        <button class="btn btn-navy" id="cookieAccept">Accept All</button>
+        <button class="btn btn-outline" id="cookieDecline">Decline</button>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML('beforeend', markup);
+
+  const banner = document.getElementById('cookieBanner');
+  setTimeout(() => banner.classList.add('show'), 400);
+
+  function setConsent(value){
+    localStorage.setItem(CONSENT_KEY, value);
+    banner.classList.remove('show');
+    setTimeout(() => banner.remove(), 500);
+  }
+  document.getElementById('cookieAccept').addEventListener('click', () => setConsent('accepted'));
+  document.getElementById('cookieDecline').addEventListener('click', () => setConsent('declined'));
+}
